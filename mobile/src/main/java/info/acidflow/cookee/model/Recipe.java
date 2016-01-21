@@ -24,13 +24,26 @@ public class Recipe {
     @SerializedName( "steps" )
     private final List< Step > mSteps;
 
+    @SerializedName( "meal_type" )
+    private final MealType mType;
+
+    @SerializedName( "cost" )
+    private final Cost mCost;
+
+    @SerializedName( "difficulty" )
+    private final Difficulty mDifficulty;
+
     public Recipe( String name, String description, int peopleCount,
-                   List< Ingredient > ingredientList, List< Step > steps ) {
+                   List< Ingredient > ingredientList, List< Step > steps, MealType type, Cost cost,
+                   Difficulty difficulty ) {
         mName = name;
         mDescription = description;
         mPeopleCount = peopleCount;
         mIngredientList = ingredientList;
         mSteps = steps;
+        mType = type;
+        mCost = cost;
+        mDifficulty = difficulty;
     }
 
     public String getName() {
@@ -47,5 +60,17 @@ public class Recipe {
 
     public List< Ingredient > getIngredientList() {
         return mIngredientList;
+    }
+
+    public Difficulty getDifficulty() {
+        return mDifficulty;
+    }
+
+    public Cost getCost() {
+        return mCost;
+    }
+
+    public MealType getType() {
+        return mType;
     }
 }
