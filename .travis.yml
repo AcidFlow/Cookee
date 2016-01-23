@@ -8,15 +8,15 @@ cache:
     - $HOME/.gradle/wrapper/
 
 jdk:
-    - oraclejdk8
+  - oraclejdk8
 
-before_install:
+#before_install:
 # Trick to make retrolambda working on Travis
 # We need both Java 7 and Java 8, but the android source needs to be compiled with Java 7
 # So we switch the JAVA_HOME environment to Java 7 before compiling
-  - export JAVA7_HOME=/usr/lib/jvm/java-7-oracle
-  - export JAVA8_HOME=/usr/lib/jvm/java-8-oracle
-  - export JAVA_HOME=$JAVA7_HOME
+  #- export JAVA7_HOME=/usr/lib/jvm/java-7-oracle
+  #- export JAVA8_HOME=/usr/lib/jvm/java-8-oracle
+  #- export JAVA_HOME=$JAVA7_HOME
   
 android:
     components:
@@ -33,4 +33,6 @@ android:
         - extra-google-m2repository
         - extra-android-m2repository
 script:
-    - ./gradlew build test
+    - ./gradlew build
+    #- export JAVA_HOME=$JAVA8_HOME
+    #- ./gradlew test
