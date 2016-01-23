@@ -3,8 +3,8 @@ apply plugin: 'me.tatarka.retrolambda'
 
 android {
 
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion configuration.compileSdkVersion
+    buildToolsVersion configuration.buildToolsVersion
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -19,16 +19,17 @@ android {
 
     lintOptions {
         disable 'InvalidPackage'
-        abortOnError false
+        abortOnError configuration.lint.abortOnError
     }
 
     defaultConfig {
-        applicationId "info.acidflow.cookee"
-        minSdkVersion 16
-        targetSdkVersion 23
+        applicationId configuration.package
+        minSdkVersion configuration.minSdkVersion
+        targetSdkVersion configuration.targetSdkVersion
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
 
         release {
@@ -43,23 +44,23 @@ dependencies {
     wearApp project(':wear')
 
     // Support
-    compile 'com.android.support:appcompat-v7:23.+'
+    compile "com.android.support:appcompat-v7:${libraries.support}"
 
     // Play services
-    compile 'com.google.android.gms:play-services:8.4.0'
+    compile "com.google.android.gms:play-services:${libraries.playservices}"
 
     // RxJava
-    compile 'io.reactivex:rxjava:1.1.0'
-    compile 'io.reactivex:rxandroid:1.1.0'
+    compile "io.reactivex:rxjava:${libraries.rxjava}"
+    compile "io.reactivex:rxandroid:${libraries.rxandroid}"
 
     // Retrofit
-    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta3'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'
+    compile "com.squareup.retrofit2:retrofit:${libraries.retrofit}"
+    compile "com.squareup.retrofit2:adapter-rxjava:${libraries.retrofitAdapter}"
+    compile "com.squareup.retrofit2:converter-gson:${libraries.retrofitConverter}"
 
     // Butterknife
-    compile 'com.jakewharton:butterknife:7.0.1'
+    compile "com.jakewharton:butterknife:${libraries.butterknife}"
 
     // Tests
-    testCompile 'junit:junit:4.12'
+    testCompile "junit:junit:${libraries.junit}"
 }
