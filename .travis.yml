@@ -33,4 +33,6 @@ android:
         - extra-google-m2repository
         - extra-android-m2repository
 script:
-    - ./gradlew build test
+    - ./gradlew build
+    - export JAVA_HOME=$JAVA8_HOME
+    - ./gradlew test
