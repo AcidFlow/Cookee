@@ -9,6 +9,7 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.DeviceDefault">
 
+
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
 
@@ -32,6 +33,10 @@ android {
 
     buildTypes {
 
+        debug{
+            buildConfigField buildConfig.type.STRING, buildConfig.field.REST_ENDPOINT, "\"${buildConfig.debug.restEndpoint}\""
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -45,13 +50,24 @@ dependencies {
 
     // Support
     compile "com.android.support:appcompat-v7:${libraries.support}"
+    compile "com.android.support:recyclerview-v7:${libraries.support}"
 
     // Play services
     compile "com.google.android.gms:play-services:${libraries.playservices}"
 
+    // Dagger
+    compile "com.google.dagger:dagger:${libraries.dagger}"
+    apt "com.google.dagger:dagger-compiler:${libraries.daggerCompiler}"
+    provided "org.glassfish:javax.annotation:${libraries.javaxAnnotation}"
+
     // RxJava
     compile "io.reactivex:rxjava:${libraries.rxjava}"
     compile "io.reactivex:rxandroid:${libraries.rxandroid}"
+
+
+    // OkHttp
+    compile "com.squareup.okhttp3:okhttp:${libraries.okhttp}"
+    compile "com.squareup.okhttp3:logging-interceptor:${libraries.okhttpLogging}"
 
     // Retrofit
     compile "com.squareup.retrofit2:retrofit:${libraries.retrofit}"
