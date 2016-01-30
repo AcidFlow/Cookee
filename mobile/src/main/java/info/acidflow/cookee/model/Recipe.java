@@ -73,4 +73,8 @@ public class Recipe {
     public MealType getType() {
         return mType;
     }
+
+    public List< Step > getSteps() {
+        return mSteps;
+    }
 }

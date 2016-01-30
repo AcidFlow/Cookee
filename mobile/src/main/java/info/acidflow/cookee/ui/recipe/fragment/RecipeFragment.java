@@ -2,16 +2,13 @@ package info.acidflow.cookee.ui.recipe.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -19,30 +16,49 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import info.acidflow.cookee.R;
 import info.acidflow.cookee.injection.component.DaggerFragmentComponent;
-import info.acidflow.cookee.model.Ingredient;
 import info.acidflow.cookee.model.Recipe;
-import info.acidflow.cookee.ui.adapter.ingredient.IngredientAdapter;
 import info.acidflow.cookee.ui.base.BaseActivity;
 import info.acidflow.cookee.ui.recipe.IRecipeView;
 import info.acidflow.cookee.ui.recipe.RecipePresenter;
+import info.acidflow.cookee.ui.recipe.adapter.RecipePagerAdapter;
 
 /**
  * Created by paul on 23/01/16.
  */
-public class RecipeFragment extends Fragment implements IRecipeView {
+public class RecipeFragment extends Fragment implements IRecipeView, TabLayout.OnTabSelectedListener, ViewPager.OnPageChangeListener {
 
     public static final String ARGS_RECIPE_ID = "args_recipe_id";
 
     @Inject
     RecipePresenter mPresenter;
 
-    private IngredientAdapter mAdapter;
-
-    @Bind( R.id.recycler_ingredients )
-    RecyclerView mRecyclerView;
-
     @Bind( R.id.recipe_name )
     TextView mRecipeTitle;
+
+    @Bind( R.id.recipe_difficulty )
+    TextView mRecipeDifficulty;
+
+    @Bind( R.id.recipe_people )
+    TextView mRecipePeople;
+
+    @Bind( R.id.recipe_price )
+    TextView mRecipePrice;
+
+    @Bind( R.id.recipe_type )
+    TextView mRecipeType;
+
+    @Bind( R.id.recipe_cooking_time)
+    TextView mRecipeCookingTime;
+
+    @Bind( R.id.recipe_preparation_time)
+    TextView mRecipePreparationTime;
+
+    @Bind( R.id.recipe_viewpager )
+    ViewPager mViewPager;
+
+    @Bind( R.id.tabs)
+    TabLayout mTabs;
+
 
     public static RecipeFragment newInstance( String recipeId ) {
         Bundle args = new Bundle();
@@ -66,9 +82,6 @@ public class RecipeFragment extends Fragment implements IRecipeView {
     public View onCreateView( LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState ) {
         View v = inflater.inflate( R.layout.fragment_recipe, container, false );
         ButterKnife.bind( this, v );
-        mAdapter = new IngredientAdapter(getContext(), R.layout.list_item_card_placeholder, R.layout.list_item_card_header, R.layout.list_item_card_footer);
-        mRecyclerView.setLayoutManager( new LinearLayoutManager( getActivity() ) );
-        mRecyclerView.setAdapter( mAdapter );
         return v;
     }
 
@@ -76,6 +89,8 @@ public class RecipeFragment extends Fragment implements IRecipeView {
     public void onViewCreated( View view, @Nullable Bundle savedInstanceState ) {
         super.onViewCreated( view, savedInstanceState );
         mPresenter.attachView( this );
+        mViewPager.addOnPageChangeListener( this );
+        mTabs.setOnTabSelectedListener( this );
     }
 
     @Override
@@ -88,17 +103,44 @@ public class RecipeFragment extends Fragment implements IRecipeView {
     public void onDestroyView() {
         super.onDestroyView();
         mPresenter.detachView();
+        mViewPager.removeOnPageChangeListener( this );
         ButterKnife.unbind( this );
     }
 
     @Override
     public void showRecipe( Recipe r ) {
         mRecipeTitle.setText( r.getName() );
-        List<Ingredient> l = new ArrayList<>(  );
-        for(int i = 0; i < 10; ++i){
-            l.addAll( r.getIngredientList() );
-        }
-        mAdapter.setItems( l );
-        mAdapter.notifyDataSetChanged();
+        mViewPager.setAdapter( new RecipePagerAdapter( getContext(), getFragmentManager(), r ) );
+        mTabs.setTabsFromPagerAdapter( mViewPager.getAdapter() );
+    }
+
+    @Override
+    public void onTabSelected( TabLayout.Tab tab ) {
+        mViewPager.setCurrentItem( tab.getPosition(), true );
+    }
+
+    @Override
+    public void onTabUnselected( TabLayout.Tab tab ) {
+
+    }
+
+    @Override
+    public void onTabReselected( TabLayout.Tab tab ) {
+
+    }
+
+    @Override
+    public void onPageScrolled( int position, float positionOffset, int positionOffsetPixels ) {
+
+    }
+
+    @Override
+    public void onPageSelected( int position ) {
+        mTabs.getTabAt( position ).select();
+    }
+
+    @Override
+    public void onPageScrollStateChanged( int state ) {
+
     }
 }

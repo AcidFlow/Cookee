@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/header_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="@color/colorPrimary"
+    >
+
+    <ImageView
+        android:id="@+id/img_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/recipe_header_image_height"
+        android:scaleType="centerCrop"
+        />
+
+    <TextView
+        android:id="@+id/recipe_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_huge"
+        android:layout_marginLeft="@dimen/spacing_big"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title.Inverse"
+        tools:text="My awesome recipe"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recipe_name"
+        android:layout_alignLeft="@+id/recipe_name"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/recipe_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead.Inverse"
+                tools:text="Main dish"
+                />
+
+            <TextView
+                android:id="@+id/recipe_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spacing_normal"
+                android:maxLines="1"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead.Inverse"
+                tools:text="€€€€€"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/recipe_people"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead.Inverse"
+                tools:text="4 People"
+                />
+
+            <TextView
+                android:id="@+id/recipe_difficulty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead.Inverse"
+                tools:text="Hard"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recipe_name"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:layout_marginRight="@dimen/spacing_normal"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/recipe_preparation_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead.Inverse"
+            android:gravity="right"
+            android:drawablePadding="@dimen/spacing_small"
+            tools:drawableLeft="@android:drawable/ic_partial_secure"
+            tools:text="40 min"
+            />
+        <TextView
+            android:id="@+id/recipe_cooking_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead.Inverse"
+            android:gravity="right"
+            android:drawablePadding="@dimen/spacing_small"
+            tools:drawableLeft="@android:drawable/ic_partial_secure"
+            tools:text="1540 min"
+            />
+
+    </LinearLayout>
+</RelativeLayout>

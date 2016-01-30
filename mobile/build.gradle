@@ -46,14 +46,15 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    wearApp project(':wear')
+//    wearApp project(':wear')
 
     // Support
     compile "com.android.support:appcompat-v7:${libraries.support}"
     compile "com.android.support:recyclerview-v7:${libraries.support}"
+    compile "com.android.support:design:${libraries.support}"
 
     // Play services
-    compile "com.google.android.gms:play-services:${libraries.playservices}"
+//    compile "com.google.android.gms:play-services:${libraries.playservices}"
 
     // Dagger
     compile "com.google.dagger:dagger:${libraries.dagger}"
