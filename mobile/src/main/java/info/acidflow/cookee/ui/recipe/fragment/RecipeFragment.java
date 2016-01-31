@@ -25,7 +25,8 @@ import info.acidflow.cookee.ui.recipe.adapter.RecipePagerAdapter;
 /**
  * Created by paul on 23/01/16.
  */
-public class RecipeFragment extends Fragment implements IRecipeView, TabLayout.OnTabSelectedListener, ViewPager.OnPageChangeListener {
+public class RecipeFragment extends Fragment
+        implements IRecipeView, TabLayout.OnTabSelectedListener, ViewPager.OnPageChangeListener {
 
     public static final String ARGS_RECIPE_ID = "args_recipe_id";
 
@@ -94,8 +95,8 @@ public class RecipeFragment extends Fragment implements IRecipeView, TabLayout.O
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onActivityCreated( @Nullable Bundle savedInstanceState ) {
+        super.onActivityCreated( savedInstanceState );
         mPresenter.loadRecipe( getArguments().getString( ARGS_RECIPE_ID ) );
     }
 
@@ -105,13 +106,6 @@ public class RecipeFragment extends Fragment implements IRecipeView, TabLayout.O
         mPresenter.detachView();
         mViewPager.removeOnPageChangeListener( this );
         ButterKnife.unbind( this );
-    }
-
-    @Override
-    public void showRecipe( Recipe r ) {
-        mRecipeTitle.setText( r.getName() );
-        mViewPager.setAdapter( new RecipePagerAdapter( getContext(), getFragmentManager(), r ) );
-        mTabs.setTabsFromPagerAdapter( mViewPager.getAdapter() );
     }
 
     @Override
@@ -142,5 +136,41 @@ public class RecipeFragment extends Fragment implements IRecipeView, TabLayout.O
     @Override
     public void onPageScrollStateChanged( int state ) {
 
+    }
+
+    @Override
+    public void setRecipe( Recipe r ) {
+        mViewPager.setAdapter( new RecipePagerAdapter( getContext(), getFragmentManager(), r ) );
+        mTabs.setTabsFromPagerAdapter( mViewPager.getAdapter() );
+    }
+
+    @Override
+    public void setName( String name ) {
+        mRecipeTitle.setText( name );
+    }
+
+    @Override
+    public void setDifficulty( String difficulty ) {
+        mRecipeDifficulty.setText( difficulty );
+    }
+
+    @Override
+    public void setCost( String cost ) {
+        mRecipePrice.setText( cost );
+    }
+
+    @Override
+    public void setType( String type ) {
+        mRecipeType.setText( type );
+    }
+
+    @Override
+    public void setPrice( String price ) {
+        mRecipePrice.setText( price );
+    }
+
+    @Override
+    public void setPeople( String people ) {
+        mRecipePeople.setText( people );
     }
 }

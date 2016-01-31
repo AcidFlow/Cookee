@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import info.acidflow.cookee.CookeeApplication;
 import info.acidflow.cookee.R;
 import info.acidflow.cookee.model.Ingredient;
 import info.acidflow.cookee.ui.adapter.ingredient.IngredientAdapter;
@@ -43,7 +44,9 @@ public class IngredientsFragment extends BaseViewPagerFragment {
     public View onCreateView( LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState ) {
         View view = inflater.inflate( R.layout.fragment_recipe_ingredients, container, false );
         ButterKnife.bind( this, view );
-        mAdapter = new IngredientAdapter();
+        mAdapter = new IngredientAdapter( CookeeApplication.get( getContext() )
+                .getComponent().getQuantityFormatter()
+        );
         mRecyclerView.setLayoutManager( new LinearLayoutManager( getActivity() ) );
         mRecyclerView.setAdapter( mAdapter );
         mAdapter.setItems( getArguments().getParcelableArrayList( ARGS_INGREDIENTS ) );

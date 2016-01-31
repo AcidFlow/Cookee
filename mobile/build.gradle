@@ -39,6 +39,7 @@ android {
 
         release {
             minifyEnabled false
+            buildConfigField buildConfig.type.STRING, buildConfig.field.REST_ENDPOINT, "\"${buildConfig.release.restEndpoint}\""
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -51,6 +52,7 @@ dependencies {
     // Support
     compile "com.android.support:appcompat-v7:${libraries.support}"
     compile "com.android.support:recyclerview-v7:${libraries.support}"
+    compile "com.android.support:cardview-v7:${libraries.support}"
     compile "com.android.support:design:${libraries.support}"
 
     // Play services

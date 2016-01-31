@@ -34,9 +34,5 @@ public class ApplicationModule {
         return mApplication;
     }
 
-    @Provides
-    @Singleton
-    CookeeApi provideCookeeApi(){
-        return new CookeeApi();
-    }
+
 }

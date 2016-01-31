@@ -25,7 +25,7 @@ public class StepsFragment extends BaseViewPagerFragment {
 
     private static final String ARGS_STEPS = "args_ingredients";
 
-    @Bind( R.id.recycler_ingredients )
+    @Bind( R.id.recycler_steps )
     RecyclerView mRecyclerView;
 
     private StepAdapter mAdapter;
@@ -41,7 +41,7 @@ public class StepsFragment extends BaseViewPagerFragment {
     @Nullable
     @Override
     public View onCreateView( LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState ) {
-        View view = inflater.inflate( R.layout.fragment_recipe_ingredients, container, false );
+        View view = inflater.inflate( R.layout.fragment_recipe_steps, container, false );
         ButterKnife.bind( this, view );
         mAdapter = new StepAdapter();
         mRecyclerView.setLayoutManager( new LinearLayoutManager( getActivity() ) );

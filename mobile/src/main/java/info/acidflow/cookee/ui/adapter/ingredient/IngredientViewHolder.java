@@ -16,6 +16,9 @@ public class IngredientViewHolder extends RecyclerView.ViewHolder {
     @Bind( R.id.name )
     TextView name;
 
+    @Bind( R.id.quantity )
+    TextView quantity;
+
     public IngredientViewHolder( View itemView ) {
         super( itemView );
         ButterKnife.bind( this, itemView );

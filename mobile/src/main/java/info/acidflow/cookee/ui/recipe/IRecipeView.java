@@ -8,5 +8,11 @@ import info.acidflow.cookee.ui.base.IMvpView;
  */
 public interface IRecipeView extends IMvpView{
 
-    void showRecipe( Recipe r );
+    void setName( String name );
+    void setDifficulty( String difficulty );
+    void setCost( String cost );
+    void setType( String type );
+    void setPrice( String price );
+    void setPeople( String people );
+    void setRecipe( Recipe r );
 }
