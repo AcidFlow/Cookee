@@ -1,7 +1,6 @@
 package info.acidflow.cookee.injection.component;
 
 import android.content.Context;
-import android.provider.Contacts;
 
 import javax.inject.Singleton;
 
@@ -15,7 +14,6 @@ import info.acidflow.cookee.injection.module.ApplicationModule;
 import info.acidflow.cookee.injection.module.formatter.FormatterModule;
 import info.acidflow.cookee.injection.module.rest.CookeeApiModule;
 import info.acidflow.cookee.injection.qualifier.ApplicationContext;
-import info.acidflow.cookee.model.Quantity;
 import info.acidflow.cookee.rest.api.CookeeApi;
 
 /**

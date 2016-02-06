@@ -43,6 +43,8 @@ ext {
             rxjava              : "1.1.0",
             rxandroid           : "1.1.0",
             butterknife         : "7.0.1",
+            timber              : "4.1.0",
+            recyclerViewAnimator: "2.2.0",
             junit               : "4.12"
 
     ]
@@ -57,7 +59,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.0.0-alpha9'
+        classpath 'com.android.tools.build:gradle:2.0.0-beta2'
         classpath 'me.tatarka:gradle-retrolambda:3.2.4'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
 

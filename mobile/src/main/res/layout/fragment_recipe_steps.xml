@@ -7,6 +7,6 @@
     android:overScrollMode="ifContentScrolls"
     android:paddingLeft="@dimen/spacing_small"
     android:paddingRight="@dimen/spacing_small"
-    android:paddingTop="@dimen/spacing_normal"
+    android:paddingTop="@dimen/spacing_small"
     android:clipToPadding="false"
     />

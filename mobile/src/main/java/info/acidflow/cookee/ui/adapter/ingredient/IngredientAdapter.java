@@ -4,6 +4,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import javax.inject.Inject;
+
 import info.acidflow.cookee.R;
 import info.acidflow.cookee.format.QuantityFormatter;
 import info.acidflow.cookee.model.Ingredient;
@@ -16,6 +18,7 @@ public class IngredientAdapter extends BaseRecyclerViewAdapter<Ingredient, Ingre
 
     private final QuantityFormatter mQuantityFormatter;
 
+    @Inject
     public IngredientAdapter(QuantityFormatter quantityFormatter) {
         super();
         mQuantityFormatter = quantityFormatter;

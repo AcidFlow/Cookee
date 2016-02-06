@@ -80,6 +80,12 @@ dependencies {
     // Butterknife
     compile "com.jakewharton:butterknife:${libraries.butterknife}"
 
+    // Timber
+    compile "com.jakewharton.timber:timber:${libraries.timber}"
+
+    // Recyclerview animator
+    compile "jp.wasabeef:recyclerview-animators:${libraries.recyclerViewAnimator}"
+
     // Tests
     testCompile "junit:junit:${libraries.junit}"
 }

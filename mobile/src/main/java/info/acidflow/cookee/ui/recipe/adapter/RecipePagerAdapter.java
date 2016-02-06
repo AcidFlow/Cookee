@@ -12,8 +12,8 @@ import info.acidflow.cookee.model.Ingredient;
 import info.acidflow.cookee.model.Recipe;
 import info.acidflow.cookee.model.Step;
 import info.acidflow.cookee.ui.base.fragment.BaseViewPagerFragment;
-import info.acidflow.cookee.ui.recipe.fragment.IngredientsFragment;
-import info.acidflow.cookee.ui.recipe.fragment.StepsFragment;
+import info.acidflow.cookee.ui.recipe.fragment.ingredient.IngredientsFragment;
+import info.acidflow.cookee.ui.recipe.fragment.steps.StepsFragment;
 
 /**
  * Created by paul on 25/01/16.

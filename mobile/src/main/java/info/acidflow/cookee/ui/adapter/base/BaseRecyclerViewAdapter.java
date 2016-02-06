@@ -3,6 +3,7 @@ package info.acidflow.cookee.ui.adapter.base;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,6 +12,15 @@ import java.util.List;
 public abstract class BaseRecyclerViewAdapter<T, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
 
     private List<T> mItems;
+
+    public BaseRecyclerViewAdapter() {
+        super();
+        mItems = new ArrayList<>();
+    }
+
+    public void addItem( T item ){
+        mItems.add( item );
+    }
 
     public void setItems( List<T> items ){
         mItems = items;

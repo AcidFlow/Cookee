@@ -4,16 +4,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import javax.inject.Inject;
+
 import info.acidflow.cookee.R;
-import info.acidflow.cookee.model.Ingredient;
 import info.acidflow.cookee.model.Step;
 import info.acidflow.cookee.ui.adapter.base.BaseRecyclerViewAdapter;
-import info.acidflow.cookee.ui.adapter.ingredient.IngredientViewHolder;
 
 /**
  * Created by paul on 24/01/16.
  */
 public class StepAdapter extends BaseRecyclerViewAdapter<Step, StepViewHolder > {
+
+    @Inject
+    public StepAdapter(){
+        super();
+    }
 
     @Override
     public StepViewHolder onCreateViewHolder( ViewGroup parent, int viewType ) {

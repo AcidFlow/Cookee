@@ -10,7 +10,7 @@ import info.acidflow.cookee.model.units.Gram;
 import info.acidflow.cookee.model.units.Unit;
 import info.acidflow.cookee.rest.gson.deserializer.UnitDeserializer;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by paul on 20/01/16.
