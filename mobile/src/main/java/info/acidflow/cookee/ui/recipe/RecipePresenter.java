@@ -13,11 +13,12 @@ import info.acidflow.cookee.rest.api.CookeeApi;
 import info.acidflow.cookee.ui.base.BasePresenter;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
+import timber.log.Timber;
 
 /**
  * Created by paul on 23/01/16.
  */
-public class RecipePresenter extends BasePresenter<IRecipeView> {
+public class RecipePresenter extends BasePresenter< IRecipeView > {
 
     private final CostFormatter mCostFormatter;
     private final MealTypeFormatter mMealTypeFormatter;
@@ -27,7 +28,7 @@ public class RecipePresenter extends BasePresenter<IRecipeView> {
 
     @Inject
     public RecipePresenter( CookeeApi api, CostFormatter costFormatter, MealTypeFormatter mealTypeFormatter,
-                            DifficultyFormatter difficultyFormatter, PeopleCountFormatter peopleCountFormatter) {
+                            DifficultyFormatter difficultyFormatter, PeopleCountFormatter peopleCountFormatter ) {
         super();
         mApi = api;
         mCostFormatter = costFormatter;
@@ -40,7 +41,7 @@ public class RecipePresenter extends BasePresenter<IRecipeView> {
         mApi.getRecipe( recipeId )
                 .subscribeOn( Schedulers.io() )
                 .observeOn( AndroidSchedulers.mainThread() )
-                .subscribe( this::onRecipeLoaded, this::onLoadRecipeError);
+                .subscribe( this::onRecipeLoaded, this::onLoadRecipeError );
 
     }
 
@@ -55,10 +56,22 @@ public class RecipePresenter extends BasePresenter<IRecipeView> {
         }
     }
 
-    private void onLoadRecipeError(Throwable error) {
-        Log.e(getClass().getName(), "Error", error);
-
+    private void onLoadRecipeError( Throwable error ) {
+        Log.e( getClass().getName(), "Error", error );
     }
 
+    public void onPageSelected( int position ) {
+        getMvpView().selectTab( position );
+        getMvpView().setFabIcon( position );
+    }
+
+    public void onTabSelected( int position ) {
+        getMvpView().selectPage( position );
+        getMvpView().setFabIcon( position );
+    }
+
+    public void onFabClicked( int currentPosition ) {
+        Timber.d( "Clicked FAB on tab %d", currentPosition );
+    }
 
 }

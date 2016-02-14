@@ -1,7 +1,9 @@
 package info.acidflow.cookee.ui.recipe.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -14,6 +16,7 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import info.acidflow.cookee.R;
 import info.acidflow.cookee.injection.component.DaggerFragmentComponent;
 import info.acidflow.cookee.model.Recipe;
@@ -48,16 +51,19 @@ public class RecipeFragment extends Fragment
     @Bind( R.id.recipe_type )
     TextView mRecipeType;
 
-    @Bind( R.id.recipe_cooking_time)
+    @Bind( R.id.recipe_cooking_time )
     TextView mRecipeCookingTime;
 
-    @Bind( R.id.recipe_preparation_time)
+    @Bind( R.id.recipe_preparation_time )
     TextView mRecipePreparationTime;
+
+    @Bind( R.id.recipe_fab )
+    FloatingActionButton mFloatingActionButton;
 
     @Bind( R.id.recipe_viewpager )
     ViewPager mViewPager;
 
-    @Bind( R.id.tabs)
+    @Bind( R.id.tabs )
     TabLayout mTabs;
 
 
@@ -73,7 +79,7 @@ public class RecipeFragment extends Fragment
     public void onCreate( @Nullable Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
         DaggerFragmentComponent.builder()
-                .activityComponent( ( (BaseActivity ) getActivity() ).getActivityComponent() )
+                .activityComponent( ( ( BaseActivity ) getActivity() ).getActivityComponent() )
                 .build()
                 .inject( this );
     }
@@ -110,7 +116,7 @@ public class RecipeFragment extends Fragment
 
     @Override
     public void onTabSelected( TabLayout.Tab tab ) {
-        mViewPager.setCurrentItem( tab.getPosition(), true );
+        mPresenter.onTabSelected( tab.getPosition() );
     }
 
     @Override
@@ -130,7 +136,7 @@ public class RecipeFragment extends Fragment
 
     @Override
     public void onPageSelected( int position ) {
-        mTabs.getTabAt( position ).select();
+        mPresenter.onPageSelected( position );
     }
 
     @Override
@@ -142,6 +148,7 @@ public class RecipeFragment extends Fragment
     public void setRecipe( Recipe r ) {
         mViewPager.setAdapter( new RecipePagerAdapter( getContext(), getFragmentManager(), r ) );
         mTabs.setTabsFromPagerAdapter( mViewPager.getAdapter() );
+        mFloatingActionButton.show();
     }
 
     @Override
@@ -172,5 +179,35 @@ public class RecipeFragment extends Fragment
     @Override
     public void setPeople( String people ) {
         mRecipePeople.setText( people );
+    }
+
+    @Override
+    public void selectTab( int position ) {
+        mTabs.getTabAt( position ).select();
+    }
+
+    @Override
+    public void selectPage( int position ) {
+        mViewPager.setCurrentItem( position, true );
+    }
+
+    @Override
+    public void setFabIcon( int position ) {
+        @DrawableRes int drawableRes = -1;
+        switch ( position ) {
+            case 0:
+                drawableRes = R.drawable.ic_group_black_24dp;
+                break;
+            case 1:
+                drawableRes = R.drawable.ic_play_arrow_black_24dp;
+                break;
+        }
+        mFloatingActionButton.setImageResource( drawableRes );
+    }
+
+    @Override
+    @OnClick( R.id.recipe_fab )
+    public void onFabClicked() {
+        mPresenter.onFabClicked( mViewPager.getCurrentItem() );
     }
 }

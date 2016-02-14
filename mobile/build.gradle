@@ -56,7 +56,8 @@ dependencies {
     compile "com.android.support:design:${libraries.support}"
 
     // Play services
-//    compile "com.google.android.gms:play-services:${libraries.playservices}"
+    compile 'com.google.android.support:wearable:+'
+    compile 'com.google.android.gms:play-services-wearable:+'
 
     // Dagger
     compile "com.google.dagger:dagger:${libraries.dagger}"

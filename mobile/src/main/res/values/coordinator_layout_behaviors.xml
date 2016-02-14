@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fab_scrolling_behavior" translatable="false">info.acidflow.cookee.ui.widget.behavior.ScrollAwareFabBehavior</string>
+</resources>
