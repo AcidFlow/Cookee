@@ -15,6 +15,7 @@ import info.acidflow.cookee.injection.module.formatter.FormatterModule;
 import info.acidflow.cookee.injection.module.rest.CookeeApiModule;
 import info.acidflow.cookee.injection.qualifier.ApplicationContext;
 import info.acidflow.cookee.rest.api.CookeeApi;
+import info.acidflow.cookee.ui.cooking.service.CookingService;
 
 /**
  * Created by paul on 23/01/16.
@@ -36,4 +37,6 @@ public interface ApplicationComponent {
     MealTypeFormatter getMealTypeFormatter();
     PeopleCountFormatter getPeopleCountFormatter();
     QuantityFormatter getQuantityFormatter();
+
+    void inject( CookingService service );
 }

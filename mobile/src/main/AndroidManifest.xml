@@ -6,7 +6,7 @@
     <application
         android:name=".CookeeApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_cookee_launcher_48dp"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -19,6 +19,10 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+
+        <service android:name=".ui.cooking.service.CookingService"
+                 android:exported="false"
+            />
     </application>
 
 </manifest>

@@ -1,13 +1,17 @@
 package info.acidflow.cookee.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
+import java.net.Proxy;
 import java.util.List;
 
 /**
  * Created by paul on 20/01/16.
  */
-public class Recipe {
+public class Recipe implements Parcelable {
 
     @SerializedName( "name" )
     private final String mName;
@@ -77,4 +81,44 @@ public class Recipe {
     public List< Step > getSteps() {
         return mSteps;
     }
+
+    @Override
+    public void writeToParcel( Parcel dest, int flags ) {
+        dest.writeString( mName );
+        dest.writeString( mDescription );
+        dest.writeInt( mPeopleCount );
+        dest.writeTypedList( mIngredientList );
+        dest.writeTypedList( mSteps );
+        dest.writeInt( mType.ordinal() );
+        dest.writeInt( mCost.ordinal() );
+        dest.writeInt( mDifficulty.ordinal() );
+    }
+
+    protected Recipe( Parcel in ) {
+        mName = in.readString();
+        mDescription = in.readString();
+        mPeopleCount = in.readInt();
+        mIngredientList = in.createTypedArrayList( Ingredient.CREATOR );
+        mSteps = in.createTypedArrayList( Step.CREATOR );
+        mType = MealType.values()[in.readInt()];
+        mCost = Cost.values()[in.readInt()];
+        mDifficulty = Difficulty.values()[in.readInt()];
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator< Recipe > CREATOR = new Creator< Recipe >() {
+        @Override
+        public Recipe createFromParcel( Parcel in ) {
+            return new Recipe( in );
+        }
+
+        @Override
+        public Recipe[] newArray( int size ) {
+            return new Recipe[ size ];
+        }
+    };
 }

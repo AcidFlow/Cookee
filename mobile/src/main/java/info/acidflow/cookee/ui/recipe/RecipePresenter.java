@@ -26,6 +26,8 @@ public class RecipePresenter extends BasePresenter< IRecipeView > {
     private final PeopleCountFormatter mPeopleCountFormatter;
     private final CookeeApi mApi;
 
+    private Recipe mRecipe;
+
     @Inject
     public RecipePresenter( CookeeApi api, CostFormatter costFormatter, MealTypeFormatter mealTypeFormatter,
                             DifficultyFormatter difficultyFormatter, PeopleCountFormatter peopleCountFormatter ) {
@@ -46,6 +48,7 @@ public class RecipePresenter extends BasePresenter< IRecipeView > {
     }
 
     private void onRecipeLoaded( Recipe r ) {
+        mRecipe = r;
         if ( isViewAttached() ) {
             getMvpView().setRecipe( r );
             getMvpView().setName( r.getName() );
@@ -71,6 +74,9 @@ public class RecipePresenter extends BasePresenter< IRecipeView > {
     }
 
     public void onFabClicked( int currentPosition ) {
+        if(currentPosition == 1){
+            getMvpView().startCooking(mRecipe);
+        }
         Timber.d( "Clicked FAB on tab %d", currentPosition );
     }
 

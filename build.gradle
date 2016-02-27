@@ -37,7 +37,7 @@ ext {
             dagger              : "2.0.2",
             daggerCompiler      : "2.0.2",
             javaxAnnotation     : "10.0-b28",
-            support             : "23.1.1",
+            support             : "23.2.0",
             supportWearable     : "1.3.0",
             playservices        : "8.4.0",
             rxjava              : "1.1.0",
@@ -59,7 +59,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.0.0-beta3'
+        classpath 'com.android.tools.build:gradle:2.0.0-beta6'
         classpath 'me.tatarka:gradle-retrolambda:3.2.4'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
 

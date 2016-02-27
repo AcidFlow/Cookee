@@ -1,5 +1,6 @@
 package info.acidflow.cookee.ui.recipe.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
@@ -20,6 +21,8 @@ import butterknife.OnClick;
 import info.acidflow.cookee.R;
 import info.acidflow.cookee.injection.component.DaggerFragmentComponent;
 import info.acidflow.cookee.model.Recipe;
+import info.acidflow.cookee.ui.cooking.service.CookingPresenter;
+import info.acidflow.cookee.ui.cooking.service.CookingService;
 import info.acidflow.cookee.ui.base.BaseActivity;
 import info.acidflow.cookee.ui.recipe.IRecipeView;
 import info.acidflow.cookee.ui.recipe.RecipePresenter;
@@ -209,5 +212,13 @@ public class RecipeFragment extends Fragment
     @OnClick( R.id.recipe_fab )
     public void onFabClicked() {
         mPresenter.onFabClicked( mViewPager.getCurrentItem() );
+    }
+
+    @Override
+    public void startCooking( Recipe r ) {
+        Intent intent = new Intent(getContext(), CookingService.class);
+        intent.setAction( CookingPresenter.START_COOKING );
+        intent.putExtra( CookingPresenter.EXTRA_RECIPE, r );
+        getContext().startService(intent);
     }
 }

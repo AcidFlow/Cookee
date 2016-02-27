@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#263238</color>
     <color name="colorPrimaryDark">#ff2a3338</color>
-    <color name="colorAccent">#ff4081</color>
+    <color name="colorAccent">#ffcc00</color>
     <color name="background_default_list_item">#ffffffff</color>
     <color name="window_background">#e0e0e0</color>
 </resources>

@@ -2,4 +2,8 @@
     <string name="app_name">Cookee</string>
     <string name="tab_title_ingredients">Ingredients</string>
     <string name="tab_title_recipe">Recipe</string>
+    <string name="notification_cooking_step_progress">Step %1$d of %2$d</string>
+    <string name="notification_action_cooking_step_done">Done</string>
+    <string name="notification_cooking_finished_title">Well done!</string>
+    <string name="notification_cooking_finished_message">You can sit back, relax and enjoy your meal!</string>
 </resources>

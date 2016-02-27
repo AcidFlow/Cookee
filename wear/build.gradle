@@ -35,4 +35,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.google.android.support:wearable:${libraries.supportWearable}"
     compile "com.google.android.gms:play-services-wearable:${libraries.playservices}"
+
+    // Butterknife
+    compile "com.jakewharton:butterknife:${libraries.butterknife}"
 }

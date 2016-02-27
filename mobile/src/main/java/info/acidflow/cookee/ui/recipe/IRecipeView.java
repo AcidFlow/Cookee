@@ -29,4 +29,6 @@ public interface IRecipeView extends IMvpView {
     void onFabClicked();
 
     void setFabIcon( int position );
+
+    void startCooking( Recipe r );
 }
