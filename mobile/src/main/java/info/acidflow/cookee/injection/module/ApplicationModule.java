@@ -21,13 +21,13 @@ public class ApplicationModule {
     }
 
     @Provides
-    Application provideApplication(){
+    Application provideApplication() {
         return mApplication;
     }
 
     @Provides
     @ApplicationContext
-    Context provideContext(){
+    Context provideContext() {
         return mApplication;
     }
 

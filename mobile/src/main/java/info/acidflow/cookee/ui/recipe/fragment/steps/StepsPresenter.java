@@ -15,9 +15,9 @@ import rx.schedulers.Schedulers;
 /**
  * Created by paul on 06/02/16.
  */
-public class StepsPresenter extends BasePresenter<IStepsView> {
+public class StepsPresenter extends BasePresenter< IStepsView > {
 
-    private List<Step> mSteps;
+    private List< Step > mSteps;
     private Subscription mStepsSubscription;
 
     @Inject
@@ -29,7 +29,7 @@ public class StepsPresenter extends BasePresenter<IStepsView> {
         mSteps = steps;
     }
 
-    public void loadSteps(){
+    public void loadSteps() {
         mStepsSubscription = Observable.from( mSteps )
                 .delay( 500, TimeUnit.MILLISECONDS )
                 .subscribeOn( Schedulers.io() )
@@ -37,8 +37,8 @@ public class StepsPresenter extends BasePresenter<IStepsView> {
                 .subscribe( this::addStep );
     }
 
-    private void addStep(Step step){
-        if( isViewAttached() ){
+    private void addStep( Step step ) {
+        if ( isViewAttached() ) {
             getMvpView().addStep( step );
         }
     }

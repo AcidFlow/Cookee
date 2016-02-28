@@ -14,7 +14,7 @@ public class CookeeApiModule {
 
     @Provides
     @Singleton
-    CookeeApi provideCookeeApi(){
+    CookeeApi provideCookeeApi() {
         return new CookeeApi();
     }
 }

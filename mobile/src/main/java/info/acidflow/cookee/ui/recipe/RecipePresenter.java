@@ -74,8 +74,8 @@ public class RecipePresenter extends BasePresenter< IRecipeView > {
     }
 
     public void onFabClicked( int currentPosition ) {
-        if(currentPosition == 1){
-            getMvpView().startCooking(mRecipe);
+        if ( currentPosition == 1 ) {
+            getMvpView().startCooking( mRecipe );
         }
         Timber.d( "Clicked FAB on tab %d", currentPosition );
     }

@@ -6,4 +6,6 @@
     <string name="notification_action_cooking_step_done">Done</string>
     <string name="notification_cooking_finished_title">Well done!</string>
     <string name="notification_cooking_finished_message">You can sit back, relax and enjoy your meal!</string>
+    <string name="notification_cooking_timer_remaining_time_title">%1$d seconds remaining before</string>
+    <string name="notification_cooking_timer_finished_title">Timer finished!</string>
 </resources>

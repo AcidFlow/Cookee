@@ -24,8 +24,8 @@ public class CookeeApplication extends Application {
         initializeTimber();
     }
 
-    private void initializeTimber(){
-        if( BuildConfig.DEBUG ) {
+    private void initializeTimber() {
+        if ( BuildConfig.DEBUG ) {
             Timber.plant( new Timber.DebugTree() );
         }
     }

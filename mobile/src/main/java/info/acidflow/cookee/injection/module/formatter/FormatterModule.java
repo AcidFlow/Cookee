@@ -21,31 +21,31 @@ public class FormatterModule {
 
     @Provides
     @Singleton
-    CostFormatter provideCostFormatter(@ApplicationContext Context context){
-        return new CostFormatter(context);
+    CostFormatter provideCostFormatter( @ApplicationContext Context context ) {
+        return new CostFormatter( context );
     }
 
     @Provides
     @Singleton
-    DifficultyFormatter provideDifficultyFormatter( @ApplicationContext Context context){
-        return new DifficultyFormatter(context);
+    DifficultyFormatter provideDifficultyFormatter( @ApplicationContext Context context ) {
+        return new DifficultyFormatter( context );
     }
 
     @Provides
     @Singleton
-    MealTypeFormatter provideMealTypeFormatter( @ApplicationContext Context context){
-        return new MealTypeFormatter(context);
+    MealTypeFormatter provideMealTypeFormatter( @ApplicationContext Context context ) {
+        return new MealTypeFormatter( context );
     }
 
     @Provides
     @Singleton
-    PeopleCountFormatter providePeopleCountFormatter( @ApplicationContext Context context){
-        return new PeopleCountFormatter(context);
+    PeopleCountFormatter providePeopleCountFormatter( @ApplicationContext Context context ) {
+        return new PeopleCountFormatter( context );
     }
 
     @Provides
     @Singleton
-    QuantityFormatter proQuantityFormatter( @ApplicationContext Context context){
-        return new QuantityFormatter(context);
+    QuantityFormatter proQuantityFormatter( @ApplicationContext Context context ) {
+        return new QuantityFormatter( context );
     }
 }

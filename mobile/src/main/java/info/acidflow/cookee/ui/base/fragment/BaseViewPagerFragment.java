@@ -8,5 +8,7 @@ import android.support.v4.app.Fragment;
  */
 public abstract class BaseViewPagerFragment extends Fragment {
 
-    public abstract @StringRes int getTitle();
+    public abstract
+    @StringRes
+    int getTitle();
 }

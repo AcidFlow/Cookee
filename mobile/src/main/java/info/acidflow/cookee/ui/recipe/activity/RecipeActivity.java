@@ -16,10 +16,10 @@ public class RecipeActivity extends BaseActivity {
     protected void onCreate( @Nullable Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_recipe );
-        if( savedInstanceState == null ){
+        if ( savedInstanceState == null ) {
             getSupportFragmentManager().beginTransaction()
-                .add( R.id.fragment_container_recipe, RecipeFragment.newInstance( "1" ) )
-                .commit();
+                    .add( R.id.fragment_container_recipe, RecipeFragment.newInstance( "2" ) )
+                    .commit();
         }
     }
 }

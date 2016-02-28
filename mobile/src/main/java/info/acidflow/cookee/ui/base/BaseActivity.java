@@ -15,7 +15,7 @@ public class BaseActivity extends AppCompatActivity {
     private ActivityComponent mActivityComponent;
 
     public ActivityComponent getActivityComponent() {
-        if (mActivityComponent == null) {
+        if ( mActivityComponent == null ) {
             mActivityComponent = DaggerActivityComponent.builder()
                     .applicationComponent( CookeeApplication.get( this ).getComponent() )
                     .activityModule( new ActivityModule( this ) )

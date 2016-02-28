@@ -11,7 +11,7 @@ import info.acidflow.cookee.injection.qualifier.ApplicationContext;
 /**
  * Created by paul on 31/01/16.
  */
-public class PeopleCountFormatter extends AbstractFormatter<Integer> {
+public class PeopleCountFormatter extends AbstractFormatter< Integer > {
 
     @Inject
     public PeopleCountFormatter( @ApplicationContext Context context ) {
@@ -19,7 +19,7 @@ public class PeopleCountFormatter extends AbstractFormatter<Integer> {
     }
 
     @Override
-    public String format( Integer count ){
+    public String format( Integer count ) {
         return String.format( Locale.getDefault(), "%d people", count );
     }
 }

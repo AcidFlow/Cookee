@@ -8,5 +8,5 @@ import info.acidflow.cookee.ui.base.IMvpView;
  */
 public interface IIngredientsView extends IMvpView {
 
-    void addIngredient( Ingredient ingredient);
+    void addIngredient( Ingredient ingredient );
 }

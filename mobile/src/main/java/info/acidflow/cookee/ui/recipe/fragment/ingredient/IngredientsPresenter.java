@@ -15,9 +15,9 @@ import rx.schedulers.Schedulers;
 /**
  * Created by paul on 06/02/16.
  */
-public class IngredientsPresenter extends BasePresenter<IIngredientsView> {
+public class IngredientsPresenter extends BasePresenter< IIngredientsView > {
 
-    private List<Ingredient> mIngredients;
+    private List< Ingredient > mIngredients;
     private Subscription mIngredientSubscription;
 
     @Inject
@@ -29,7 +29,7 @@ public class IngredientsPresenter extends BasePresenter<IIngredientsView> {
         mIngredients = ingredients;
     }
 
-    public void loadIngredients(){
+    public void loadIngredients() {
         mIngredientSubscription = Observable.from( mIngredients )
                 .delay( 500, TimeUnit.MILLISECONDS )
                 .subscribeOn( Schedulers.io() )
@@ -37,8 +37,8 @@ public class IngredientsPresenter extends BasePresenter<IIngredientsView> {
                 .subscribe( this::addIngredient );
     }
 
-    private void addIngredient(Ingredient ingredient){
-        if( isViewAttached() ){
+    private void addIngredient( Ingredient ingredient ) {
+        if ( isViewAttached() ) {
             getMvpView().addIngredient( ingredient );
         }
     }

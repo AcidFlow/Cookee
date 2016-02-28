@@ -11,6 +11,6 @@ import rx.Observable;
  */
 public interface CookeeApiService {
 
-    @GET("recipe/{recipe_id}")
-    Observable<Recipe> getRecipe( @Path("recipe_id") String id );
+    @GET( "recipe/{recipe_id}" )
+    Observable< Recipe > getRecipe( @Path( "recipe_id" ) String id );
 }

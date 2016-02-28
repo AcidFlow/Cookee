@@ -51,7 +51,7 @@ public class IngredientsFragment extends BaseViewPagerFragment implements IIngre
     public void onCreate( @Nullable Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
         DaggerFragmentComponent.builder()
-                .activityComponent( ( (BaseActivity ) getActivity() ).getActivityComponent() )
+                .activityComponent( ( ( BaseActivity ) getActivity() ).getActivityComponent() )
                 .build()
                 .inject( this );
         mPresenter.setIngredients( getArguments().getParcelableArrayList( ARGS_INGREDIENTS ) );

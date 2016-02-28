@@ -9,28 +9,28 @@ import java.util.List;
 /**
  * Created by paul on 28/01/16.
  */
-public abstract class BaseRecyclerViewAdapter<T, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
+public abstract class BaseRecyclerViewAdapter< T, VH extends RecyclerView.ViewHolder > extends RecyclerView.Adapter< VH > {
 
-    private List<T> mItems;
+    private List< T > mItems;
 
     public BaseRecyclerViewAdapter() {
         super();
         mItems = new ArrayList<>();
     }
 
-    public void addItem( T item ){
+    public void addItem( T item ) {
         mItems.add( item );
     }
 
-    public void setItems( List<T> items ){
+    public void setItems( List< T > items ) {
         mItems = items;
     }
 
-    public List<T> getItems(){
+    public List< T > getItems() {
         return mItems;
     }
 
-    public T getItem( int position ){
+    public T getItem( int position ) {
         return mItems.get( position );
     }
 

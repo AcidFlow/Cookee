@@ -20,7 +20,7 @@ import info.acidflow.cookee.ui.recipe.fragment.steps.StepsFragment;
  */
 public class RecipePagerAdapter extends FragmentStatePagerAdapter {
 
-    private List<BaseViewPagerFragment> mFragments;
+    private List< BaseViewPagerFragment > mFragments;
     private Context mContext;
 
     public RecipePagerAdapter( Context context, FragmentManager fm, Recipe recipe ) {

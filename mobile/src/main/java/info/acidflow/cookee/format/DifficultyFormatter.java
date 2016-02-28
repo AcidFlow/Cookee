@@ -10,7 +10,7 @@ import info.acidflow.cookee.model.Difficulty;
 /**
  * Created by paul on 31/01/16.
  */
-public class DifficultyFormatter extends AbstractFormatter<Difficulty> {
+public class DifficultyFormatter extends AbstractFormatter< Difficulty > {
 
     @Inject
     public DifficultyFormatter( @ApplicationContext Context context ) {
@@ -18,8 +18,8 @@ public class DifficultyFormatter extends AbstractFormatter<Difficulty> {
     }
 
     @Override
-    public String format( Difficulty difficulty ){
+    public String format( Difficulty difficulty ) {
         return difficulty.name();
     }
-    
+
 }

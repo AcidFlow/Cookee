@@ -21,7 +21,7 @@ public final class UnitDeserializer implements JsonDeserializer< Unit > {
             throws JsonParseException {
         return UnitFactory.getUnit( UnitType.valueOf(
                 json.getAsJsonObject().get( "type" ).getAsString()
-            )
+                )
         );
     }
 }

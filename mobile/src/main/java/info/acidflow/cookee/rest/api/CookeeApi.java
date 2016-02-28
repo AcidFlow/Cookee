@@ -32,8 +32,8 @@ public class CookeeApi {
                 .create();
 
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(BuildConfig.DEBUG ? HttpLoggingInterceptor.Level.BODY
-                : HttpLoggingInterceptor.Level.NONE);
+        logging.setLevel( BuildConfig.DEBUG ? HttpLoggingInterceptor.Level.BODY
+                : HttpLoggingInterceptor.Level.NONE );
         mOkhttpClient = new OkHttpClient.Builder().addInterceptor( logging ).build();
 
         // Building retrofit service
@@ -46,7 +46,7 @@ public class CookeeApi {
         mApiService = retrofit.create( CookeeApiService.class );
     }
 
-    public Observable<Recipe> getRecipe( String recipeId ){
+    public Observable< Recipe > getRecipe( String recipeId ) {
         return mApiService.getRecipe( recipeId );
     }
 }

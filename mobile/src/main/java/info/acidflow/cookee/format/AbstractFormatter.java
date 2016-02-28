@@ -7,7 +7,7 @@ import info.acidflow.cookee.injection.qualifier.ApplicationContext;
 /**
  * Created by paul on 31/01/16.
  */
-abstract class AbstractFormatter<T> {
+abstract class AbstractFormatter< T > {
 
     private final Context mContext;
 
@@ -16,7 +16,7 @@ abstract class AbstractFormatter<T> {
         mContext = context;
     }
 
-    protected Context getContext(){
+    protected Context getContext() {
         return mContext;
     }
 

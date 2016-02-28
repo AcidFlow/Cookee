@@ -12,7 +12,7 @@ import info.acidflow.cookee.model.Quantity;
 /**
  * Created by paul on 31/01/16.
  */
-public class QuantityFormatter extends AbstractFormatter<Quantity> {
+public class QuantityFormatter extends AbstractFormatter< Quantity > {
 
     @Inject
     public QuantityFormatter( @ApplicationContext Context context ) {
@@ -20,7 +20,7 @@ public class QuantityFormatter extends AbstractFormatter<Quantity> {
     }
 
     @Override
-    public String format( Quantity quantity ){
+    public String format( Quantity quantity ) {
         return String.format( Locale.getDefault(), "%,.2f %s",
                 quantity.getQuantity(), quantity.getUnit().getType().name()
         );

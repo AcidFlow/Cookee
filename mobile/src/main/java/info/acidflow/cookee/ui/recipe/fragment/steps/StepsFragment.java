@@ -50,7 +50,7 @@ public class StepsFragment extends BaseViewPagerFragment implements IStepsView {
     public void onCreate( @Nullable Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
         DaggerFragmentComponent.builder()
-                .activityComponent( ((BaseActivity) getActivity()).getActivityComponent() )
+                .activityComponent( ( ( BaseActivity ) getActivity() ).getActivityComponent() )
                 .build()
                 .inject( this );
         mPresenter.setSteps( getArguments().getParcelableArrayList( ARGS_STEPS ) );

@@ -14,14 +14,18 @@ import info.acidflow.cookee.rest.api.CookeeApi;
  * Created by paul on 23/01/16.
  */
 @ActivityScope
-@Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
+@Component( dependencies = ApplicationComponent.class, modules = ActivityModule.class )
 public interface ActivityComponent {
 
     CookeeApi getCookeApi();
 
     CostFormatter getCostFormatter();
+
     DifficultyFormatter getDifficultyFormatter();
+
     MealTypeFormatter getMealTypeFormatter();
+
     PeopleCountFormatter getPeopleCountFormatter();
+
     QuantityFormatter getQuantityFormatter();
 }

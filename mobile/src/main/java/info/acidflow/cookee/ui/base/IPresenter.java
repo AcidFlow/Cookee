@@ -5,11 +5,11 @@ import android.support.annotation.NonNull;
 /**
  * Created by paul on 24/01/16.
  */
-public interface IPresenter<T extends IMvpView >  {
+public interface IPresenter< T extends IMvpView > {
 
     void attachView( @NonNull T view );
+
     void detachView();
 
-    
 
 }

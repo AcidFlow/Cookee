@@ -5,7 +5,6 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.net.Proxy;
 import java.util.List;
 
 /**
@@ -100,9 +99,9 @@ public class Recipe implements Parcelable {
         mPeopleCount = in.readInt();
         mIngredientList = in.createTypedArrayList( Ingredient.CREATOR );
         mSteps = in.createTypedArrayList( Step.CREATOR );
-        mType = MealType.values()[in.readInt()];
-        mCost = Cost.values()[in.readInt()];
-        mDifficulty = Difficulty.values()[in.readInt()];
+        mType = MealType.values()[ in.readInt() ];
+        mCost = Cost.values()[ in.readInt() ];
+        mDifficulty = Difficulty.values()[ in.readInt() ];
     }
 
     @Override

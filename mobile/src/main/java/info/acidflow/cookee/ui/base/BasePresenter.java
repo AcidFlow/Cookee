@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 /**
  * Created by paul on 24/01/16.
  */
-public abstract class BasePresenter<T extends IMvpView > implements IPresenter<T> {
+public abstract class BasePresenter< T extends IMvpView > implements IPresenter< T > {
 
     private T mMvpView;
 
@@ -19,11 +19,11 @@ public abstract class BasePresenter<T extends IMvpView > implements IPresenter<T
         mMvpView = null;
     }
 
-    protected T getMvpView(){
+    protected T getMvpView() {
         return mMvpView;
     }
 
-    public boolean isViewAttached(){
+    public boolean isViewAttached() {
         return mMvpView != null;
     }
 

@@ -21,13 +21,13 @@ public class ActivityModule {
     }
 
     @Provides
-    Activity provideActivity(){
+    Activity provideActivity() {
         return mActivity;
     }
 
     @Provides
     @ActivityContext
-    Context provideContext(){
+    Context provideContext() {
         return mActivity;
     }
 

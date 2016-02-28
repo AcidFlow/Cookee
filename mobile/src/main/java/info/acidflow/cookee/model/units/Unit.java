@@ -10,19 +10,19 @@ public class Unit implements Parcelable {
 
     private final UnitType mType;
 
-    protected Unit( UnitType type){
+    protected Unit( UnitType type ) {
         super();
         mType = type;
     }
 
 
-    public final UnitType getType(){
+    public final UnitType getType() {
         return mType;
     }
 
     protected Unit( Parcel in ) {
         super();
-        mType = UnitType.values()[in.readInt()];
+        mType = UnitType.values()[ in.readInt() ];
     }
 
     @Override

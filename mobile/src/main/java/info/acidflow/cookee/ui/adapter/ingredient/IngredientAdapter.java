@@ -14,12 +14,12 @@ import info.acidflow.cookee.ui.adapter.base.BaseRecyclerViewAdapter;
 /**
  * Created by paul on 24/01/16.
  */
-public class IngredientAdapter extends BaseRecyclerViewAdapter<Ingredient, IngredientViewHolder> {
+public class IngredientAdapter extends BaseRecyclerViewAdapter< Ingredient, IngredientViewHolder > {
 
     private final QuantityFormatter mQuantityFormatter;
 
     @Inject
-    public IngredientAdapter(QuantityFormatter quantityFormatter) {
+    public IngredientAdapter( QuantityFormatter quantityFormatter ) {
         super();
         mQuantityFormatter = quantityFormatter;
     }
@@ -27,7 +27,7 @@ public class IngredientAdapter extends BaseRecyclerViewAdapter<Ingredient, Ingre
     @Override
     public IngredientViewHolder onCreateViewHolder( ViewGroup parent, int viewType ) {
         View v = LayoutInflater.from( parent.getContext() )
-                .inflate( R.layout.list_item_ingredient, parent, false);
+                .inflate( R.layout.list_item_ingredient, parent, false );
         return new IngredientViewHolder( v );
     }
 

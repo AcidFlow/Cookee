@@ -10,7 +10,7 @@ import info.acidflow.cookee.model.Cost;
 /**
  * Created by paul on 31/01/16.
  */
-public class CostFormatter extends AbstractFormatter<Cost> {
+public class CostFormatter extends AbstractFormatter< Cost > {
 
     @Inject
     public CostFormatter( @ApplicationContext Context context ) {
@@ -18,7 +18,7 @@ public class CostFormatter extends AbstractFormatter<Cost> {
     }
 
     @Override
-    public String format( Cost cost ){
+    public String format( Cost cost ) {
         return cost.name();
     }
 

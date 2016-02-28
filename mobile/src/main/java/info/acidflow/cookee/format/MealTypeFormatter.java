@@ -10,7 +10,7 @@ import info.acidflow.cookee.model.MealType;
 /**
  * Created by paul on 31/01/16.
  */
-public class MealTypeFormatter extends AbstractFormatter<MealType> {
+public class MealTypeFormatter extends AbstractFormatter< MealType > {
 
     @Inject
     public MealTypeFormatter( @ApplicationContext Context context ) {
@@ -18,8 +18,8 @@ public class MealTypeFormatter extends AbstractFormatter<MealType> {
     }
 
     @Override
-    public String format( MealType mealType ){
+    public String format( MealType mealType ) {
         return mealType.name();
     }
-    
+
 }

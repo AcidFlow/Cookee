@@ -11,9 +11,11 @@ import info.acidflow.cookee.ui.recipe.fragment.steps.StepsFragment;
  * Created by paul on 23/01/16.
  */
 @FragmentScope
-@Component(dependencies = {ActivityComponent.class}, modules = FragmentModule.class)
+@Component( dependencies = { ActivityComponent.class }, modules = FragmentModule.class )
 public interface FragmentComponent {
     void inject( RecipeFragment fragment );
+
     void inject( IngredientsFragment fragment );
+
     void inject( StepsFragment fragment );
 }

@@ -21,21 +21,26 @@ import info.acidflow.cookee.ui.cooking.service.CookingService;
  * Created by paul on 23/01/16.
  */
 @Singleton
-@Component(modules = {
+@Component( modules = {
         ApplicationModule.class,
         FormatterModule.class,
         CookeeApiModule.class
-})
+} )
 public interface ApplicationComponent {
 
     @ApplicationContext
     Context getContext();
+
     CookeeApi getCookeApi();
 
     CostFormatter getCostFormatter();
+
     DifficultyFormatter getDifficultyFormatter();
+
     MealTypeFormatter getMealTypeFormatter();
+
     PeopleCountFormatter getPeopleCountFormatter();
+
     QuantityFormatter getQuantityFormatter();
 
     void inject( CookingService service );

@@ -1,5 +1,6 @@
 package info.acidflow.cookee.ui.cooking.service;
 
+import info.acidflow.cookee.cooking.CookingStepTimer;
 import info.acidflow.cookee.ui.base.IMvpView;
 
 /**
@@ -8,7 +9,11 @@ import info.acidflow.cookee.ui.base.IMvpView;
 public interface ICookingView extends IMvpView {
 
     void onNextCookingStep( int totalSteps, int currentStep, String text );
+
     void onCookingFinished();
+
     void onCookingCanceled();
+
+    void onAddTimer( CookingStepTimer t );
 
 }

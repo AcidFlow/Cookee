@@ -21,9 +21,9 @@ import butterknife.OnClick;
 import info.acidflow.cookee.R;
 import info.acidflow.cookee.injection.component.DaggerFragmentComponent;
 import info.acidflow.cookee.model.Recipe;
+import info.acidflow.cookee.ui.base.BaseActivity;
 import info.acidflow.cookee.ui.cooking.service.CookingPresenter;
 import info.acidflow.cookee.ui.cooking.service.CookingService;
-import info.acidflow.cookee.ui.base.BaseActivity;
 import info.acidflow.cookee.ui.recipe.IRecipeView;
 import info.acidflow.cookee.ui.recipe.RecipePresenter;
 import info.acidflow.cookee.ui.recipe.adapter.RecipePagerAdapter;
@@ -216,9 +216,9 @@ public class RecipeFragment extends Fragment
 
     @Override
     public void startCooking( Recipe r ) {
-        Intent intent = new Intent(getContext(), CookingService.class);
+        Intent intent = new Intent( getContext(), CookingService.class );
         intent.setAction( CookingPresenter.START_COOKING );
         intent.putExtra( CookingPresenter.EXTRA_RECIPE, r );
-        getContext().startService(intent);
+        getContext().startService( intent );
     }
 }
